@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>When can I have Native Code?</title>
+    <meta name="description"
+     content="When can I have Native Code? - October 19, 2015">
+    <meta name="author" content="Brad Nelson">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="style.css" id="theme">
+    <link href='http://fonts.googleapis.com/css?family=Mrs+Sheppards' rel='stylesheet' type='text/css'>
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var reveal_js = 'reveal.js';
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? reveal_js + '/css/print/pdf.css' : reveal_js + '/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+        <section
+        data-background-video="title.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        </section>
+
+        <section>
+        <h3>Slides:</h3>
+        <a href="http://gonacl.com/magic">gonacl.com/magic</a>
+        </section>
+
+        <section
+        data-background-video="obelisk.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Expect more from the Web Platform</h2>
+        <ul>
+          <li class="fragment">Vibrant platforms let developers innovate!</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="obelisk.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Virtues of the Web</h2>
+        <ul>
+          <li class="fragment">Open</li>
+          <li class="fragment">Portable</li>
+          <li class="fragment">Secure</li>
+          <li class="fragment">Ephemeral</li>
+          <br/>
+        </ul>
+        <p class="fragment">What's missing?</li>
+        <p class="fragment">
+        Powerful
+        <span class="fragment">&rarr; Native Code</span>
+        <span class="fragment">&rarr; Magic!</span></p>
+        </section>
+
+        <section
+        data-background-video="magic.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Native Code on the Web</h2>
+        <ul>
+          <li class="fragment">Native Code is awesome</li>
+          <li class="fragment">Other options don't work</li>
+          <li class="fragment">Security</li>
+          <li class="fragment">Emerging Standards</li>
+          <li class="fragment">What can I start using now?</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle2.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Magic Words (Jargon)</h2>
+        <ul>
+          <li class="fragment">
+          <b>Na</b>tive <b>Cl</b>ient &rarr; <b>NaCl</b></li>
+          <li class="fragment">
+          <b>P</b>ortable <b>Na</b>tive <b>Cl</b>ient
+          &rarr; <b>PNaCl</b></li>
+          <li class="fragment">
+          <b>Em</b>script<b>en</b>
+          &rarr; [<b>Put into</b>] script [<b>become</b>]</li>
+          <li class="fragment">
+          Asm.js &rarr; "Assembly Language" as JavaScript</li>
+        </ul>
+        </section>
+
+
+
+
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Native Code</h2>
+        <ul>
+          <li class="fragment">Runs really fast
+          <ul>
+            <li class="fragment">Close to the metal</li>
+            <li class="fragment">Low power</li>
+          </ul>
+          </li>
+          <li class="fragment">Has access to "native" APIs</li>
+          <li class="fragment">All the languages: C++, Java, Python...</li>
+          <li class="fragment">Threads + Shared Memory</li>
+          <li class="fragment">Dynamic code generation</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Native Client</h2>
+        <ul>
+          <li class="fragment">Run machine code, safely</li>
+          <li class="fragment">Portable variant</li>
+          <li class="fragment">Fast</li>
+          <ul>
+            <li class="fragment">80-95% of Raw Native</li>
+            <li class="fragment">SIMD support</li>
+            <li class="fragment">Threads and shared memory</li>
+          </ul>
+          <li class="fragment">Shared Libraries</li>
+          <li class="fragment">JIT Support</li>
+          <li class="fragment">
+          <b>Mature and powerful, but Chrome only</b></li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Emscripten / Asm.js</h2>
+        <ul>
+          <li class="fragment">C/C++ compiled to JavaScript</li>
+          <li class="fragment">Use ArrayBuffer as a C/C++ heap</li>
+          <li class="fragment">Synchronous access to JS + the DOM</li>
+          <li class="fragment">Faster in some browsers than others</li>
+          <li class="fragment">High percentage of Raw Native</li>
+          <li class="fragment">
+          <b>More portable, but generally less powerful</b></li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="cauldron_darker.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>APIs</h2>
+        <ul>
+          <li class="fragment">2D Graphics</li>
+          <li class="fragment">3D Graphics</li>
+          <li class="fragment">Sound</li>
+          <li class="fragment">Media Streams</li>
+          <li class="fragment">Local Storage</li>
+          <br/>
+          <li class="fragment">Network Access</li>
+          <li class="fragment">Clipboard</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle2.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>What can Native Code do?</h2>
+        </section>
+
+        <section
+        data-background-video="perf.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="games.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section>
+        <img src="quick_office.png"/>
+        </section>
+
+        <section>
+        <img src="google_photos.png"/>
+        </section>
+
+        <section>
+        <h4>GNU Image Manipulation Program (GIMP)</h4>
+        <img src="gimp2.png"/>
+        </section>
+
+        <section>
+        <img src="video_stream.png"/>
+        </section>
+
+        <section>
+        <img src="google_voice.png"/>
+        </section>
+
+        <section>
+        <img src="play_music.png"/>
+        </section>
+
+        <section>
+        <img src="vnc.png"/>
+        </section>
+
+        <section
+        data-background-video="browserdev.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section>
+        <h3>Android &rarr; ChromeOS</h3>
+        <img src="arc_welder.png"/>
+        </section>
+
+        <section>
+        <img src="duolingo.png"/>
+        </section>
+
+        <section>
+        <img src="evernote.png"/>
+        </section>
+
+        <section>
+        <img src="overdrive.png"/>
+        </section>
+
+        <section>
+        <img src="vine.png"/>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>But I'm a <s>JavaScript</s> Forth developer...</h2>
+        <ul>
+          <li class="fragment">C/C++ libraries</li>
+          <li class="fragment">Codecs</li>
+          <li class="fragment">Widgets</li>
+        </ul>
+        </section>
+
+
+
+
+        <section
+        data-background-video="obelisk.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Aren't JavaScript + the DOM enough?</h2>
+        <ul>
+          <li class="fragment">JavaScript performance is plateauing</li>
+          <li class="fragment">The DOM is inherently slow</li>
+          </br>
+          <li class="fragment">Both require browsers to infer and guess</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="js_perf.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="memory.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h3>JavaScript "Type Declarations"</h3>
+        <ul>
+          <li class="fragment">float64 &rarr; +(xxx)</li>
+          <li class="fragment">float32 &rarr; Math.fround(xxx)</li>
+          <li class="fragment">int32 &rarr; (xxx)|0</li>
+          <li class="fragment">uint32 &rarr; (xxx)&gt;&gt;&gt;0</li>
+          <br/>
+          <li class="fragment">TypedArray &rarr; pointers</li>
+        </ul>
+        </section>
+
+        <section>
+        <pre><code data-trim>
+function MyAsmModule(stdlib, foreign, heap) {
+  "use asm";
+  var HEAPU8 = new Uint8Array(heap);
+  function strlen(ptr) {
+    ptr = ptr|0;
+    var curr = 0;
+    curr = ptr;
+    while (HEAP8[curr]|0 != 0) {
+      curr = (curr + 1)|0;
+    }
+    return (curr - ptr)|0;
+  }
+  ...
+          </code></pre>
+        </section>
+
+
+
+        <section
+        data-background-video="wand_sparkle2.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000"
+        data-transition="zoom">
+        <h1>Is it <i>safe</i>?</h1>
+        </section>
+
+        <section
+        data-background-video="text_good_witch.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>The Good Stuff</h2>
+        <ul>
+          <li class="fragment">High Performance
+          <ul>
+            <li class="fragment">Games / Physics Engines</li>
+            <li class="fragment">Video / Image Processing</li>
+            <li class="fragment">Compression</li>
+            <li class="fragment">Encryption</li>
+          </ul>
+          </li>
+          <li class="fragment">Compatibility</li>
+          <ul>
+            <li class="fragment">Port non-JS apps, as is</li>
+            <li class="fragment">Language freedom</li>
+            <li class="fragment">Maybe more APIs</li>
+          </ul>
+          </li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="text_bad_witch.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="cauldron_darker.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>The Bad Stuff</h2>
+        <ul>
+          <li class="fragment">Malware
+          <ul>
+            <li class="fragment">Steals your data</li>
+            <li class="fragment">Stays around when you leave the page</li>
+            <li class="fragment">Pretends to be something else</li>
+            <li class="fragment">Eavesdrops on you</li>
+          </ul>
+          </li>
+          <li class="fragment">Portability</li>
+          <ul>
+            <li class="fragment">Architecture dependent</li>
+            <li class="fragment">OS dependent</li>
+            <li class="fragment">Browser dependent</li>
+            <li class="fragment">Configuration dependent</li>
+          </ul>
+          </li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="obelisk.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h1>Good witch or bad witch?</h1>
+        </section>
+
+        <section
+        data-background-video="bad_activex.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="cauldron_darker.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Technology Graveyard</h2>
+        <ul>
+          <li class="fragment">ActiveX</li>
+          <li class="fragment">NPAPI</li>
+          <li class="fragment">Java</li>
+          <li class="fragment">Flash</li>
+        </ul>
+        </section>
+
+
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h3>Security for Native Code</h3>
+        <ul>
+          <li class="fragment">API surface equivalent to JavaScript</li>
+          <li class="fragment">Hardened Web APIs</li>
+          <li class="fragment">Secure Native Code container</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h3>What makes NaCl safe?</h3>
+        <ul>
+          <li class="fragment">Two Sandboxes!
+          <ul>
+            <li class="fragment">Outer Process Sandbox</li>
+            <li class="fragment">Inner Static Verification Sandbox</li>
+          </ul>
+          </li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Process Sandbox (NaCl)</h2>
+        <table class="boxy">
+          <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td class="fragment" data-fragment-index="5">&#10530;</td>
+            <td><div class="box2 fragment" data-fragment-index="5">
+                Renderer Process</div></td>
+            <td class="fragment" data-fragment-index="6">&#8596;</td>
+            <td><div class="box3 fragment" data-fragment-index="6">
+                NaCl Process</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="box1 fragment" data-fragment-index="2">OS</div>
+            </td>
+            <td class="fragment" data-fragment-index="2">&#8596;</td>
+            <td style="min-width: 200px"><div class="fragment" data-fragment-index="1">
+                <img width="200" height="200" src="chrome.png"/>
+            </div></td>
+            <td class="fragment" data-fragment-index="3">&#8596;</td>
+            <td><div class="box2 fragment" data-fragment-index="3">
+                Renderer Process</div></td>
+            <td> </td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td class="fragment" data-fragment-index="4">&#10529;</td>
+            <td><div class="box2 fragment" data-fragment-index="4">
+                Renderer Process</div></td>
+            <td> </td>
+            <td> </td>
+          </tr>
+        </table>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h3>Software Fault Isolation<br/><h3>(NaCl Inner Sandbox)</h4></h3>
+        <ul>
+          <li class="fragment">Verify before run</li>
+          <li class="fragment">Disassemble everything</li>
+          <li class="fragment">Limit instructions</li>
+          <li class="fragment">Restrict what code can execute
+          <br/>(Control Flow Integrity)</li>
+          <li class="fragment">Restrict what data can be accessed
+          <br/>(Data Integrity)</li>
+          <li class="fragment">Restrict I/O interface</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h3>Software Fault Isolation<br/><h3>(NaCl Inner Sandbox)</h4></h3>
+        <table class="boxy">
+          <tr>
+            <td>0 - 256MB</td>
+            <td><div class="box2" style="min-width: 400px; min-height: 100px">
+                Code</div></td>
+          </tr>
+          <tr>
+            <td>256MB - 1GB / 4GB</td>
+            <td><div class="box3" style="min-width: 400px; min-height: 300px">
+                Data</div></td>
+          </tr>
+        </table>
+        </section>
+
+
+        <section
+        data-background-video="time1.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="SIMD.js.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>SIMD.js</h2>
+        <ul>
+          <li class="fragment">
+          SIMD &rarr; Single Instruction, Multiple Data</li>
+          <li class="fragment">Expose SSE/AVX/Neon to the Web</li>
+          <li class="fragment">
+          <b>128-bit SIMD Types</b>:
+          Float32x4<br/>
+          [U]Int32x4 [U]Int16x8 [U]Int8x16<br/>
+          Bool32x4 Bool16x8 Bool8x16</li>
+          <li class="fragment">Load and Store to ArrayBuffers</li>
+          <li class="fragment">Close correspondence to SIMD instructions</li>
+          <li class="fragment">TC39 Stage 3</li>
+          <li class="fragment">SIMD.js + Asm.js</li>
+        </ul>
+        </section>
+
+        <section>
+        <pre><code data-trim>
+function vec4average(a) {
+  var a_length = a.length;
+  var sum = SIMD.Float32x4.splat(0.0);
+  for (var i = 0; i &lt; a_length; i += 4) {
+    sum = SIMD.Float32x4.add(
+        sum, SIMD.Float32x4.load(a, i));
+  }
+  return SIMD.div(sum, SIMD.Float32x4.splat(n));
+}
+        </code></pre>
+        </section>
+
+        <section
+        data-background-video="SharedArrayBuffers.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>SharedArrayBuffers</h2>
+        <ul>
+          <li class="fragment">Shared Memory for JavaScript</li>
+          <li class="fragment">ArrayBuffer transfer + postMessage</li>
+          <li class="fragment">Atomics + Futexes</li>
+          <li class="fragment">TC39 Stage 1</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="ball_split.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Threads in JavaScript</h2>
+        <ul>
+          <li class="fragment">postMessage is SLOW!</li>
+          <li class="fragment">Fast synchronization</li>
+          <li class="fragment">Use all the cores!</li>
+          <li class="fragment">Blocking on background threads!</li>
+          <li class="fragment">Different concurrency models</li>
+          <li class="fragment">C/C++ code expects threads</li>
+        </section>
+
+        <section
+        data-background-video="cauldron_darker.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Challenges with Threads on the Web</h2>
+        <ul>
+          <li class="fragment">Concurrency is hard</li>
+          <li class="fragment">Side channel attacks?</li>
+          <li class="fragment">What about the main thread?</li>
+          <li class="fragment">Shared Memory + Web APIS</li>
+          <li class="fragment">Will it change how Web apps work?</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="WebAssembly.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Web Assembly</h2>
+        <ul>
+          <li class="fragment">Cross-browser binary Native Code</li>
+          <li class="fragment">Minimum Viable Product</li>
+          <li class="fragment">Polyfill</li>
+          <li class="fragment">LLVM backend upstream</li>
+          <li class="fragment">Post MVP
+          <ul>
+            <li class="fragment">Threads + Shared Memory</li>
+            <li class="fragment">SIMD</li>
+            <li class="fragment">Hardware Fault Interception</li>
+            <li class="fragment">Memory mapping</li>
+            <li class="fragment">Dynamic Linking / Shared Libraries</li>
+            <li class="fragment">JIT Support</li>
+          </ul>
+          </li>
+        </ul>
+        </section>
+
+        <section>
+        <pre><code data-trim>
+(func $aligned (result i32)
+  (local i32 i32 i32)
+  (set_local 0 (i32.const 10))
+  (label
+    (loop
+      (if
+        (i32.eq (get_local 0) (i32.const 0))
+        (break 0)
+      )
+      (set_local 2
+        (i32.mul (get_local 0) (i32.const 4)))
+      (i32.store (get_local 2) (get_local 0))
+...
+        </code></pre>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Planning Ahead</h2>
+        <ul>
+          <li class="fragment">Use NaCl / Emscripten today</li>
+          <li class="fragment">Use SIMD.js + SABs when ready</li>
+          <li class="fragment">Transition to WebAssembly</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle2.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000"
+        data-transition="zoom">
+        <h1>The future is coming FAST</h1>
+        </section>
+
+        <section
+        data-background-video="ball_build.mp4"
+        data-background-color="#000">
+        </section>
+
+
+
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>How can I start TODAY!?</h2>
+        <ul>
+          <li class="fragment">
+          Focus on features you can optionally push to the server</li>
+          <li class="fragment">
+          Or replace with an alternative experience</li>
+          <li class="fragment">
+          Or focus on a particular platform</li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="cauldron_darker.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Where does it run?</h2>
+        <ul>
+          <li class="fragment">
+          Asm.js &rarr; Modern browsers, various speeds</li>
+          <li class="fragment">PNaCl &rarr; Chrome on any website</li>
+          <li class="fragment">NaCl &rarr; Chrome Web Store
+          <img height="300" src="chrome_web_store.png"/>
+          </li>
+        </ul>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Get an SDK</h2>
+        <p>NaCl SDK: <br/>
+        <a href="http://gonacl.com">gonacl.com</a></p>
+        <p>Emscripten: <br/>
+        <a href="http://emscripten.org">emscripten.org</a></p>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle3.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Leverage Ports</h2>
+        <ul>
+          <li class="fragment">naclports + Emscripten ports</li>
+          <li class="fragment">cross compile + autoconf</li>
+          <li class="fragment">
+          Use an interpreter ports for Python, Lua, Ruby...</li>
+        </ul>
+        </section>
+
+        <section>
+          <pre><code data-trim>
+var mgr = new NaClProcessManager();
+mgr.spawn(
+    'python.nmf', ['python', 'foo.py', [
+      'PYTHONHOME=/lib/python2.7',
+      'PYTHONPATH=/lib/python2.7',
+    ], '/', 'pnacl', null,
+    function(pid) {
+  callback();
+});
+          </code></pre>
+        </section>
+
+        <section
+        data-background-video="wand_sparkle2.mp4"
+        data-background-video-loop="loop"
+        data-background-color="#000">
+        <h2>Demand the Magic!</h2>
+        </section>
+
+        <section
+        data-background-video="prequestions.mp4"
+        data-background-color="#000">
+        </section>
+
+        <section
+        data-background-video-loop="loop"
+        data-background-video="questions.mp4"
+        data-background-color="#000">
+        </section>
+
+      </div>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
+
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: Reveal.getQueryHash().transition || 'default',
+        transitionSpeed: 'fast',
+        backgroundTransition: 'fade',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: reveal_js + '/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: reveal_js + '/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: reveal_js + '/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: reveal_js + '/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: reveal_js + '/plugin/zoom-js/zoom.js', async: true },
+          { src: reveal_js + '/plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
